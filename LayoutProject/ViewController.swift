@@ -20,16 +20,19 @@ class ViewController: UIViewController {
 
         return view
     }()
+    var greenView: UIView = {
+        let view: UIView = UIView()
+        view.backgroundColor = .green
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        redView.layout(with: [.centerX(to: view, constant: 0),
-                              .centerY(to: view, constant: 0),
+        greenView.fillIn(view: view, insets: [8])
+        redView.layout(with: [.centerX(to: greenView, constant: 0),
+                              .centerY(to: greenView, constant: 0),
                               .height(constant: 100),
-                              .width(constant: 100)], parentView: view)
-        blueView.layout(with: [.topTo(redView, constant: 8),
-                               .centerX(to: view, constant: 0),
-                               .width(constant: 100),
-                               .height(constant: 100)], parentView: view)
+                              .width(constant: 100)], parentView: greenView)
+        blueView.fillIn(view: redView, insets: [8])
     }
 }
