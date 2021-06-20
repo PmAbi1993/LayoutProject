@@ -9,30 +9,28 @@ import UIKit
 import Layout
 
 class ViewController: UIViewController {
-    var redView: UIView = {
-        let view: UIView = UIView()
-        view.backgroundColor = .red
-        return view
-    }()
-    var blueView: UIView = {
-        let view: UIView = UIView()
-        view.backgroundColor = .blue
-
-        return view
-    }()
-    var greenView: UIView = {
-        let view: UIView = UIView()
-        view.backgroundColor = .green
-        return view
+    lazy var tableView: UITableView = {
+        let tableView: UITableView = UITableView()
+        tableView.registerCells([UITableViewCell.self])
+        tableView.dataSource = self
+        tableView.delegate = self
+        return tableView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        greenView.fillIn(view: view, insets: [8])
-        redView.layout(with: [.centerX(to: greenView, constant: 0),
-                              .centerY(to: greenView, constant: 0),
-                              .height(constant: 100),
-                              .width(constant: 100)], parentView: greenView)
-        blueView.fillIn(view: redView, insets: [8])
+        tableView.fillIn(view: view)
+    }
+}
+
+extension ViewController: UITableViewDelegate,
+                           UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = tableView.dequedCell(type: UITableViewCell.self)
+        cell.textLabel?.text = "bvc"
+        return cell
     }
 }
