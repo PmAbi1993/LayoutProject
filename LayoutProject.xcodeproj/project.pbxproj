@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		849577B0267F284900925C1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849577AE267F284900925C1A /* Main.storyboard */; };
 		849577B2267F284A00925C1A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849577B1267F284A00925C1A /* Assets.xcassets */; };
 		849577B5267F284A00925C1A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849577B3267F284A00925C1A /* LaunchScreen.storyboard */; };
+		849577C1267F2A1C00925C1A /* Layout in Frameworks */ = {isa = PBXBuildFile; productRef = 849577C0267F2A1C00925C1A /* Layout */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		849577B1267F284A00925C1A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		849577B4267F284A00925C1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		849577B6267F284A00925C1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		849577BD267F286300925C1A /* Layout */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Layout; path = ../Layout; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849577C1267F2A1C00925C1A /* Layout in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +43,10 @@
 		8495779C267F284900925C1A = {
 			isa = PBXGroup;
 			children = (
+				849577BD267F286300925C1A /* Layout */,
 				849577A7267F284900925C1A /* LayoutProject */,
 				849577A6267F284900925C1A /* Products */,
+				849577BF267F2A1C00925C1A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +72,13 @@
 			path = LayoutProject;
 			sourceTree = "<group>";
 		};
+		849577BF267F2A1C00925C1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,12 +89,16 @@
 				849577A1267F284900925C1A /* Sources */,
 				849577A2267F284900925C1A /* Frameworks */,
 				849577A3267F284900925C1A /* Resources */,
+				84564B6F267F396000BC47F0 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = LayoutProject;
+			packageProductDependencies = (
+				849577C0267F2A1C00925C1A /* Layout */,
+			);
 			productName = LayoutProject;
 			productReference = 849577A5267F284900925C1A /* LayoutProject.app */;
 			productType = "com.apple.product-type.application";
@@ -131,6 +147,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		84564B6F267F396000BC47F0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		849577A1267F284900925C1A /* Sources */ = {
@@ -339,6 +375,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		849577C0267F2A1C00925C1A /* Layout */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Layout;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8495779D267F284900925C1A /* Project object */;
 }
